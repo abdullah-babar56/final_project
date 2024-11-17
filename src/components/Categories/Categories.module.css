@@ -1,3 +1,0 @@
-.categories { display: flex; overflow-x: auto; gap: 10px; }
-button { padding: 5px 15px; cursor: pointer; }
-.active { background-color: #ff385c; color: white; }

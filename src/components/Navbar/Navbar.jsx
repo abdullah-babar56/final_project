@@ -1,8 +1,13 @@
-
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
+import SearchBar from "../SearchBar/SearchBar";  // Import the SearchBar component
+import Categories from "../Categories/Categories";  // Import the Categories component
 
-const Navbar = () => {
+const Navbar = ({ onCategorySelect, onSearch }) => {
+  const handleCategoryChange = (category) => {
+    onCategorySelect(category);
+  };
+
   return (
     <div className="navbar">
       {/* Top section */}
@@ -31,11 +36,8 @@ const Navbar = () => {
 
       {/* Search bar */}
       <div className="navbar__search">
-        <div className="navbar__searchItem">Where</div>
-        <div className="navbar__searchItem">Check-in</div>
-        <div className="navbar__searchItem">Check-out</div>
-        <div className="navbar__searchItem">Who</div>
-        <button className="navbar__searchButton">Search</button>
+        <Categories onCategorySelect={handleCategoryChange} /> {/* Pass the function to update category */}
+        <SearchBar onSearch={onSearch} /> {/* Pass the search function */}
       </div>
     </div>
   );
